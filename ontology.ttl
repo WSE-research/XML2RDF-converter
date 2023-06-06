@@ -1,0 +1,2393 @@
+@prefix dtd: <https://example.org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+dtd:ABWFORMAT_typ a owl:DatatypeProperty ;
+    rdfs:domain dtd:ABWFORMAT ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:Accolade_Align a owl:DatatypeProperty ;
+    rdfs:domain dtd:Accolade .
+
+dtd:Accolade_Size a owl:DatatypeProperty ;
+    rdfs:domain dtd:Accolade ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Accolade_Step a owl:DatatypeProperty ;
+    rdfs:domain dtd:Accolade ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:AttArea a owl:Class ;
+    rdfs:subClassOf dtd:has_AttArea_Range,
+        dtd:has_AttR_Domain .
+
+dtd:AttR_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:AttR ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:B a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_B_Range,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:BR a owl:DatatypeProperty ;
+    rdfs:range dtd:BR_Range ;
+    rdfs:subPropertyOf dtd:has_BR_Range .
+
+dtd:Citation a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_Citation_Range,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:Content_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:Content ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Content_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:Content ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Content_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:Content ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DD_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:DD ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DD_Font a owl:DatatypeProperty ;
+    rdfs:domain dtd:DD .
+
+dtd:DD_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:DD ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DD_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:DD ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DL_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:DL ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DL_Font a owl:DatatypeProperty ;
+    rdfs:domain dtd:DL .
+
+dtd:DL_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:DL ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DL_Indent a owl:DatatypeProperty ;
+    rdfs:domain dtd:DL ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DL_Type a owl:DatatypeProperty ;
+    rdfs:domain dtd:DL .
+
+dtd:DL_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:DL ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DT_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:DT ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DT_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:DT ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:DT_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:DT ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:FILE_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:FILE ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:FILE_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:FILE ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:FILE_PREVIEW a owl:DatatypeProperty ;
+    rdfs:domain dtd:FILE ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:FILE_SRC a owl:DatatypeProperty ;
+    rdfs:domain dtd:FILE ;
+    rdfs:range xsd:string ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:FILE_Type a owl:DatatypeProperty ;
+    rdfs:domain dtd:FILE ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:FILE_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:FILE ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:FILE_title a owl:DatatypeProperty ;
+    rdfs:domain dtd:FILE ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:FNA a owl:DatatypeProperty ;
+    rdfs:range dtd:FNA_Range ;
+    rdfs:subPropertyOf dtd:has_FNA_Range .
+
+dtd:F_Size a owl:DatatypeProperty ;
+    rdfs:domain dtd:F ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:F_Type a owl:DatatypeProperty ;
+    rdfs:domain dtd:F ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:F_Value a owl:DatatypeProperty ;
+    rdfs:domain dtd:F ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:FnArea_Line a owl:DatatypeProperty ;
+    rdfs:domain dtd:FnArea .
+
+dtd:FnArea_Size a owl:DatatypeProperty ;
+    rdfs:domain dtd:FnArea .
+
+dtd:FnR_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:FnR ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:Footnote_FnZ a owl:DatatypeProperty ;
+    rdfs:domain dtd:Footnote ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Footnote_Group a owl:DatatypeProperty ;
+    rdfs:domain dtd:Footnote .
+
+dtd:Footnote_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:Footnote ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:Footnote_Pos a owl:DatatypeProperty ;
+    rdfs:domain dtd:Footnote .
+
+dtd:Footnote_Postfix a owl:DatatypeProperty ;
+    rdfs:domain dtd:Footnote ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Footnote_Prefix a owl:DatatypeProperty ;
+    rdfs:domain dtd:Footnote ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Footnotes a owl:Class ;
+    rdfs:subClassOf dtd:has_Footnote_Domain,
+        dtd:has_Footnotes_Range .
+
+dtd:I a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_I_Range,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:IMG_Align a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG .
+
+dtd:IMG_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_Height a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_Pos a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG .
+
+dtd:IMG_SRC a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:IMG_Size a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_Type a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_Units a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_Width a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_alt a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_orient a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:IMG_title a owl:DatatypeProperty ;
+    rdfs:domain dtd:IMG ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Ident_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:Ident ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Ident_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:Ident ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Ident_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:Ident ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:LA_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:LA ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:LA_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:LA ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:LA_Size a owl:DatatypeProperty ;
+    rdfs:domain dtd:LA .
+
+dtd:LA_Value a owl:DatatypeProperty ;
+    rdfs:domain dtd:LA ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:LA_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:LA ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:NB a owl:DatatypeProperty ;
+    rdfs:range dtd:NB_Range ;
+    rdfs:subPropertyOf dtd:has_NB_Range .
+
+dtd:P_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:P ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:P_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:P ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:P_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:P ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:QuoteL a owl:DatatypeProperty ;
+    rdfs:range dtd:QuoteL_Range ;
+    rdfs:subPropertyOf dtd:has_QuoteL_Range .
+
+dtd:QuoteR a owl:DatatypeProperty ;
+    rdfs:range dtd:QuoteR_Range ;
+    rdfs:subPropertyOf dtd:has_QuoteR_Range .
+
+dtd:Revision_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:Revision ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Revision_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:Revision ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Revision_Postfix a owl:DatatypeProperty ;
+    rdfs:domain dtd:Revision ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Revision_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:Revision ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:SP a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SP_Range,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:SUB a owl:DatatypeProperty ;
+    rdfs:range dtd:SUB_Range ;
+    rdfs:subPropertyOf dtd:has_SUB_Range .
+
+dtd:SUP_class a owl:DatatypeProperty ;
+    rdfs:domain dtd:SUP ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Split_Leader a owl:DatatypeProperty ;
+    rdfs:domain dtd:Split ;
+    rdfs:range xsd:string .
+
+dtd:Subtitle_Align a owl:DatatypeProperty ;
+    rdfs:domain dtd:Subtitle .
+
+dtd:Subtitle_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:Subtitle ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Subtitle_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:Subtitle ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Subtitle_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:Subtitle ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:TOC_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:TOC ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:TOC_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:TOC ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:TOC_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:TOC ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Title_Align a owl:DatatypeProperty ;
+    rdfs:domain dtd:Title .
+
+dtd:Title_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:Title ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Title_ID a owl:DatatypeProperty ;
+    rdfs:domain dtd:Title ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:Title_lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:Title ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:U a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_U_Range,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:abgabedat a owl:DatatypeProperty ;
+    rdfs:range dtd:abgabedat_Range ;
+    rdfs:subPropertyOf dtd:has_abgabedat_Range .
+
+dtd:amtabk a owl:DatatypeProperty ;
+    rdfs:range dtd:amtabk_Range ;
+    rdfs:subPropertyOf dtd:has_amtabk_Range .
+
+dtd:anlageabgabe a owl:Class ;
+    rdfs:subClassOf dtd:has_abgabedat_Domain,
+        dtd:has_anlageabgabe_Range,
+        dtd:has_anlagedat_Domain,
+        dtd:has_dokst_Domain .
+
+dtd:anlagedat a owl:DatatypeProperty ;
+    rdfs:range dtd:anlagedat_Range ;
+    rdfs:subPropertyOf dtd:has_anlagedat_Range .
+
+dtd:ausfertigung-datum_manuell a owl:DatatypeProperty ;
+    rdfs:domain dtd:ausfertigung-datum ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:colspec_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_align a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_bindent a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_char a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_charoff a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_colname a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_colnum a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_colsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_colwidth a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_indent a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_rowsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:colspec_tindent a owl:DatatypeProperty ;
+    rdfs:domain dtd:colspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:dokst a owl:DatatypeProperty ;
+    rdfs:range dtd:dokst_Range ;
+    rdfs:subPropertyOf dtd:has_dokst_Range .
+
+dtd:dokumente_builddate a owl:DatatypeProperty ;
+    rdfs:domain dtd:dokumente ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:dokumente_doknr a owl:DatatypeProperty ;
+    rdfs:domain dtd:dokumente ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:enbez a owl:DatatypeProperty ;
+    rdfs:range dtd:enbez_Range ;
+    rdfs:subPropertyOf dtd:has_enbez_Range .
+
+dtd:entry_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_VJ a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string .
+
+dtd:entry_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_align a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_char a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_charoff a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_colname a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_colsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_diagonal a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_morerows a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_nameend a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_namest a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_rotate a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_rowsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_spanname a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:entry_valign a owl:DatatypeProperty ;
+    rdfs:domain dtd:entry ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:fundstelle_typ a owl:DatatypeProperty ;
+    rdfs:domain dtd:fundstelle ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:fussnoten_format a owl:DatatypeProperty ;
+    rdfs:domain dtd:fussnoten ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:gliederungsbez a owl:DatatypeProperty ;
+    rdfs:range dtd:gliederungsbez_Range ;
+    rdfs:subPropertyOf dtd:has_gliederungsbez_Range .
+
+dtd:gliederungseinheit a owl:Class ;
+    rdfs:subClassOf dtd:has_gliederungsbez_Domain,
+        dtd:has_gliederungseinheit_Range,
+        dtd:has_gliederungskennzahl_Domain,
+        dtd:has_gliederungstitel_Domain .
+
+dtd:gliederungskennzahl a owl:DatatypeProperty ;
+    rdfs:range dtd:gliederungskennzahl_Range ;
+    rdfs:subPropertyOf dtd:has_gliederungskennzahl_Range .
+
+dtd:gliederungstitel a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_gliederungstitel_Range,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:has_ABWFORMAT a owl:ObjectProperty ;
+    rdfs:domain dtd:has_ABWFORMAT_Domain ;
+    rdfs:range dtd:has_ABWFORMAT_Range .
+
+dtd:has_Accolade a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Accolade_Domain ;
+    rdfs:range dtd:has_Accolade_Range .
+
+dtd:has_AttArea a owl:ObjectProperty ;
+    rdfs:domain dtd:has_AttArea_Domain ;
+    rdfs:range dtd:has_AttArea_Range .
+
+dtd:has_AttR a owl:ObjectProperty ;
+    rdfs:domain dtd:has_AttR_Domain ;
+    rdfs:range dtd:has_AttR_Range .
+
+dtd:has_B a owl:ObjectProperty ;
+    rdfs:domain dtd:has_B_Domain ;
+    rdfs:range dtd:has_B_Range .
+
+dtd:has_BR a owl:ObjectProperty ;
+    rdfs:domain dtd:has_BR_Domain ;
+    rdfs:range dtd:has_BR_Range .
+
+dtd:has_Citation a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Citation_Domain ;
+    rdfs:range dtd:has_Citation_Range .
+
+dtd:has_Content a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Content_Domain ;
+    rdfs:range dtd:has_Content_Range .
+
+dtd:has_DD a owl:ObjectProperty ;
+    rdfs:domain dtd:has_DD_Domain ;
+    rdfs:range dtd:has_DD_Range .
+
+dtd:has_DL a owl:ObjectProperty ;
+    rdfs:domain dtd:has_DL_Domain ;
+    rdfs:range dtd:has_DL_Range .
+
+dtd:has_DT a owl:ObjectProperty ;
+    rdfs:domain dtd:has_DT_Domain ;
+    rdfs:range dtd:has_DT_Range .
+
+dtd:has_F a owl:ObjectProperty ;
+    rdfs:domain dtd:has_F_Domain ;
+    rdfs:range dtd:has_F_Range .
+
+dtd:has_FILE a owl:ObjectProperty ;
+    rdfs:domain dtd:has_FILE_Domain ;
+    rdfs:range dtd:has_FILE_Range .
+
+dtd:has_FNA a owl:ObjectProperty ;
+    rdfs:domain dtd:has_FNA_Domain ;
+    rdfs:range dtd:has_FNA_Range .
+
+dtd:has_FnArea a owl:ObjectProperty ;
+    rdfs:domain dtd:has_FnArea_Domain ;
+    rdfs:range dtd:has_FnArea_Range .
+
+dtd:has_FnR a owl:ObjectProperty ;
+    rdfs:domain dtd:has_FnR_Domain ;
+    rdfs:range dtd:has_FnR_Range .
+
+dtd:has_Footnote a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Footnote_Domain ;
+    rdfs:range dtd:has_Footnote_Range .
+
+dtd:has_Footnotes a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Footnotes_Domain ;
+    rdfs:range dtd:has_Footnotes_Range .
+
+dtd:has_I a owl:ObjectProperty ;
+    rdfs:domain dtd:has_I_Domain ;
+    rdfs:range dtd:has_I_Range .
+
+dtd:has_IMG a owl:ObjectProperty ;
+    rdfs:domain dtd:has_IMG_Domain ;
+    rdfs:range dtd:has_IMG_Range .
+
+dtd:has_Ident a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Ident_Domain ;
+    rdfs:range dtd:has_Ident_Range .
+
+dtd:has_LA a owl:ObjectProperty ;
+    rdfs:domain dtd:has_LA_Domain ;
+    rdfs:range dtd:has_LA_Range .
+
+dtd:has_NB a owl:ObjectProperty ;
+    rdfs:domain dtd:has_NB_Domain ;
+    rdfs:range dtd:has_NB_Range .
+
+dtd:has_P a owl:ObjectProperty ;
+    rdfs:domain dtd:has_P_Domain ;
+    rdfs:range dtd:has_P_Range .
+
+dtd:has_QuoteL a owl:ObjectProperty ;
+    rdfs:domain dtd:has_QuoteL_Domain ;
+    rdfs:range dtd:has_QuoteL_Range .
+
+dtd:has_QuoteR a owl:ObjectProperty ;
+    rdfs:domain dtd:has_QuoteR_Domain ;
+    rdfs:range dtd:has_QuoteR_Range .
+
+dtd:has_Revision a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Revision_Domain ;
+    rdfs:range dtd:has_Revision_Range .
+
+dtd:has_SP a owl:ObjectProperty ;
+    rdfs:domain dtd:has_SP_Domain ;
+    rdfs:range dtd:has_SP_Range .
+
+dtd:has_SUB a owl:ObjectProperty ;
+    rdfs:domain dtd:has_SUB_Domain ;
+    rdfs:range dtd:has_SUB_Range .
+
+dtd:has_SUP a owl:ObjectProperty ;
+    rdfs:domain dtd:has_SUP_Domain ;
+    rdfs:range dtd:has_SUP_Range .
+
+dtd:has_Split a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Split_Domain ;
+    rdfs:range dtd:has_Split_Range .
+
+dtd:has_Subtitle a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Subtitle_Domain ;
+    rdfs:range dtd:has_Subtitle_Range .
+
+dtd:has_TOC a owl:ObjectProperty ;
+    rdfs:domain dtd:has_TOC_Domain ;
+    rdfs:range dtd:has_TOC_Range .
+
+dtd:has_Title a owl:ObjectProperty ;
+    rdfs:domain dtd:has_Title_Domain ;
+    rdfs:range dtd:has_Title_Range .
+
+dtd:has_U a owl:ObjectProperty ;
+    rdfs:domain dtd:has_U_Domain ;
+    rdfs:range dtd:has_U_Range .
+
+dtd:has_abgabedat a owl:ObjectProperty ;
+    rdfs:domain dtd:has_abgabedat_Domain ;
+    rdfs:range dtd:has_abgabedat_Range .
+
+dtd:has_amtabk a owl:ObjectProperty ;
+    rdfs:domain dtd:has_amtabk_Domain ;
+    rdfs:range dtd:has_amtabk_Range .
+
+dtd:has_anlageabgabe a owl:ObjectProperty ;
+    rdfs:domain dtd:has_anlageabgabe_Domain ;
+    rdfs:range dtd:has_anlageabgabe_Range .
+
+dtd:has_anlagedat a owl:ObjectProperty ;
+    rdfs:domain dtd:has_anlagedat_Domain ;
+    rdfs:range dtd:has_anlagedat_Range .
+
+dtd:has_ausfertigung-datum a owl:ObjectProperty ;
+    rdfs:domain dtd:has_ausfertigung-datum_Domain ;
+    rdfs:range dtd:has_ausfertigung-datum_Range .
+
+dtd:has_colspec a owl:ObjectProperty ;
+    rdfs:domain dtd:has_colspec_Domain ;
+    rdfs:range dtd:has_colspec_Range .
+
+dtd:has_dokst a owl:ObjectProperty ;
+    rdfs:domain dtd:has_dokst_Domain ;
+    rdfs:range dtd:has_dokst_Range .
+
+dtd:has_enbez a owl:ObjectProperty ;
+    rdfs:domain dtd:has_enbez_Domain ;
+    rdfs:range dtd:has_enbez_Range .
+
+dtd:has_entry a owl:ObjectProperty ;
+    rdfs:domain dtd:has_entry_Domain ;
+    rdfs:range dtd:has_entry_Range .
+
+dtd:has_fundstelle a owl:ObjectProperty ;
+    rdfs:domain dtd:has_fundstelle_Domain ;
+    rdfs:range dtd:has_fundstelle_Range .
+
+dtd:has_fussnoten a owl:ObjectProperty ;
+    rdfs:domain dtd:has_fussnoten_Domain ;
+    rdfs:range dtd:has_fussnoten_Range .
+
+dtd:has_gliederungsbez a owl:ObjectProperty ;
+    rdfs:domain dtd:has_gliederungsbez_Domain ;
+    rdfs:range dtd:has_gliederungsbez_Range .
+
+dtd:has_gliederungseinheit a owl:ObjectProperty ;
+    rdfs:domain dtd:has_gliederungseinheit_Domain ;
+    rdfs:range dtd:has_gliederungseinheit_Range .
+
+dtd:has_gliederungskennzahl a owl:ObjectProperty ;
+    rdfs:domain dtd:has_gliederungskennzahl_Domain ;
+    rdfs:range dtd:has_gliederungskennzahl_Range .
+
+dtd:has_gliederungstitel a owl:ObjectProperty ;
+    rdfs:domain dtd:has_gliederungstitel_Domain ;
+    rdfs:range dtd:has_gliederungstitel_Range .
+
+dtd:has_jurabk a owl:ObjectProperty ;
+    rdfs:domain dtd:has_jurabk_Domain ;
+    rdfs:range dtd:has_jurabk_Range .
+
+dtd:has_kommentar a owl:ObjectProperty ;
+    rdfs:domain dtd:has_kommentar_Domain ;
+    rdfs:range dtd:has_kommentar_Range .
+
+dtd:has_kurzue a owl:ObjectProperty ;
+    rdfs:domain dtd:has_kurzue_Domain ;
+    rdfs:range dtd:has_kurzue_Range .
+
+dtd:has_langue a owl:ObjectProperty ;
+    rdfs:domain dtd:has_langue_Domain ;
+    rdfs:range dtd:has_langue_Range .
+
+dtd:has_metadaten a owl:ObjectProperty ;
+    rdfs:domain dtd:has_metadaten_Domain ;
+    rdfs:range dtd:has_metadaten_Range .
+
+dtd:has_noindex a owl:ObjectProperty ;
+    rdfs:domain dtd:has_noindex_Domain ;
+    rdfs:range dtd:has_noindex_Range .
+
+dtd:has_norm a owl:ObjectProperty ;
+    rdfs:domain dtd:has_norm_Domain ;
+    rdfs:range dtd:has_norm_Range .
+
+dtd:has_periodikum a owl:ObjectProperty ;
+    rdfs:domain dtd:has_periodikum_Domain ;
+    rdfs:range dtd:has_periodikum_Range .
+
+dtd:has_pre a owl:ObjectProperty ;
+    rdfs:domain dtd:has_pre_Domain ;
+    rdfs:range dtd:has_pre_Range .
+
+dtd:has_row a owl:ObjectProperty ;
+    rdfs:domain dtd:has_row_Domain ;
+    rdfs:range dtd:has_row_Range .
+
+dtd:has_small a owl:ObjectProperty ;
+    rdfs:domain dtd:has_small_Domain ;
+    rdfs:range dtd:has_small_Range .
+
+dtd:has_spanspec a owl:ObjectProperty ;
+    rdfs:domain dtd:has_spanspec_Domain ;
+    rdfs:range dtd:has_spanspec_Range .
+
+dtd:has_standangabe a owl:ObjectProperty ;
+    rdfs:domain dtd:has_standangabe_Domain ;
+    rdfs:range dtd:has_standangabe_Range .
+
+dtd:has_standkommentar a owl:ObjectProperty ;
+    rdfs:domain dtd:has_standkommentar_Domain ;
+    rdfs:range dtd:has_standkommentar_Range .
+
+dtd:has_standtyp a owl:ObjectProperty ;
+    rdfs:domain dtd:has_standtyp_Domain ;
+    rdfs:range dtd:has_standtyp_Range .
+
+dtd:has_table a owl:ObjectProperty ;
+    rdfs:domain dtd:has_table_Domain ;
+    rdfs:range dtd:has_table_Range .
+
+dtd:has_tbody a owl:ObjectProperty ;
+    rdfs:domain dtd:has_tbody_Domain ;
+    rdfs:range dtd:has_tbody_Range .
+
+dtd:has_text a owl:ObjectProperty ;
+    rdfs:domain dtd:has_text_Domain ;
+    rdfs:range dtd:has_text_Range .
+
+dtd:has_textdaten a owl:ObjectProperty ;
+    rdfs:domain dtd:has_textdaten_Domain ;
+    rdfs:range dtd:has_textdaten_Range .
+
+dtd:has_tfoot a owl:ObjectProperty ;
+    rdfs:domain dtd:has_tfoot_Domain ;
+    rdfs:range dtd:has_tfoot_Range .
+
+dtd:has_tgroup a owl:ObjectProperty ;
+    rdfs:domain dtd:has_tgroup_Domain ;
+    rdfs:range dtd:has_tgroup_Range .
+
+dtd:has_thead a owl:ObjectProperty ;
+    rdfs:domain dtd:has_thead_Domain ;
+    rdfs:range dtd:has_thead_Range .
+
+dtd:has_titel a owl:ObjectProperty ;
+    rdfs:domain dtd:has_titel_Domain ;
+    rdfs:range dtd:has_titel_Range .
+
+dtd:has_zitstelle a owl:ObjectProperty ;
+    rdfs:domain dtd:has_zitstelle_Domain ;
+    rdfs:range dtd:has_zitstelle_Range .
+
+dtd:jurabk a owl:DatatypeProperty ;
+    rdfs:range dtd:jurabk_Range ;
+    rdfs:subPropertyOf dtd:has_jurabk_Range .
+
+dtd:kommentar_typ a owl:DatatypeProperty ;
+    rdfs:domain dtd:kommentar ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:kurzue a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_kurzue_Range,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:langue a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_langue_Range,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:metadaten a owl:Class ;
+    rdfs:subClassOf dtd:has_amtabk_Domain,
+        dtd:has_ausfertigung-datum_Domain,
+        dtd:has_enbez_Domain,
+        dtd:has_fundstelle_Domain,
+        dtd:has_gliederungseinheit_Domain,
+        dtd:has_jurabk_Domain,
+        dtd:has_kurzue_Domain,
+        dtd:has_langue_Domain,
+        dtd:has_metadaten_Range,
+        dtd:has_standangabe_Domain,
+        dtd:has_titel_Domain .
+
+dtd:noindex a owl:DatatypeProperty ;
+    rdfs:range dtd:noindex_Range ;
+    rdfs:subPropertyOf dtd:has_noindex_Range .
+
+dtd:norm_builddate a owl:DatatypeProperty ;
+    rdfs:domain dtd:norm ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:norm_doknr a owl:DatatypeProperty ;
+    rdfs:domain dtd:norm ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:periodikum a owl:DatatypeProperty ;
+    rdfs:range dtd:periodikum_Range ;
+    rdfs:subPropertyOf dtd:has_periodikum_Range .
+
+dtd:pre_calsid a owl:DatatypeProperty ;
+    rdfs:domain dtd:pre ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:pre_ignore a owl:DatatypeProperty ;
+    rdfs:domain dtd:pre ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:pre_space a owl:DatatypeProperty ;
+    rdfs:domain dtd:pre ;
+    owl:hasValue "preserve"^^xsd:string .
+
+dtd:row_Break a owl:DatatypeProperty ;
+    rdfs:domain dtd:row ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:row_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:row ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:row_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:row ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:row_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:row ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:row_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:row ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:row_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:row ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:row_rowsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:row ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:row_valign a owl:DatatypeProperty ;
+    rdfs:domain dtd:row ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:small a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_small_Range,
+        dtd:has_table_Domain .
+
+dtd:spanspec_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_align a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec .
+
+dtd:spanspec_bindent a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_char a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_charoff a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_colsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_indent a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_nameend a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_namest a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_rowsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_spanname a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:spanspec_tindent a owl:DatatypeProperty ;
+    rdfs:domain dtd:spanspec ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:standangabe_checked a owl:DatatypeProperty ;
+    rdfs:domain dtd:standangabe ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:standkommentar a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_standkommentar_Range,
+        dtd:has_table_Domain .
+
+dtd:standtyp a owl:DatatypeProperty ;
+    rdfs:range dtd:standtyp_Range ;
+    rdfs:subPropertyOf dtd:has_standtyp_Range .
+
+dtd:table_Break a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_MarginB a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_MarginL a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_MarginR a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_MarginT a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_colsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_frame a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_label a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_orient a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_pgwide a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_rowsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_shortentry a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_tabstyle a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:table_tocentry a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string .
+
+dtd:table_vj a owl:DatatypeProperty ;
+    rdfs:domain dtd:table ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tbody_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:tbody ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tbody_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:tbody ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tbody_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:tbody ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tbody_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:tbody ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tbody_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:tbody ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tbody_Style a owl:DatatypeProperty ;
+    rdfs:domain dtd:tbody ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tbody_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:tbody ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tbody_valign a owl:DatatypeProperty ;
+    rdfs:domain dtd:tbody .
+
+dtd:text_format a owl:DatatypeProperty ;
+    rdfs:domain dtd:text ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:textdaten a owl:Class ;
+    rdfs:subClassOf dtd:has_fussnoten_Domain,
+        dtd:has_text_Domain,
+        dtd:has_textdaten_Range .
+
+dtd:tfoot_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:tfoot ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tfoot_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:tfoot ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tfoot_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:tfoot ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tfoot_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:tfoot ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tfoot_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:tfoot ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tfoot_valign a owl:DatatypeProperty ;
+    rdfs:domain dtd:tfoot .
+
+dtd:tgroup_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_align a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup .
+
+dtd:tgroup_bindent a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_char a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string .
+
+dtd:tgroup_charoff a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string .
+
+dtd:tgroup_cols a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:cardinality "0"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_colsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_indent a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_rowsep a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_tgroupstyle a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:tgroup_tindent a owl:DatatypeProperty ;
+    rdfs:domain dtd:tgroup ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:thead_Class a owl:DatatypeProperty ;
+    rdfs:domain dtd:thead ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:thead_Id a owl:DatatypeProperty ;
+    rdfs:domain dtd:thead ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:thead_Lang a owl:DatatypeProperty ;
+    rdfs:domain dtd:thead ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:thead_Remap a owl:DatatypeProperty ;
+    rdfs:domain dtd:thead ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:thead_Role a owl:DatatypeProperty ;
+    rdfs:domain dtd:thead ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:thead_Style a owl:DatatypeProperty ;
+    rdfs:domain dtd:thead ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:thead_XRefLabel a owl:DatatypeProperty ;
+    rdfs:domain dtd:thead ;
+    rdfs:range xsd:string ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:thead_valign a owl:DatatypeProperty ;
+    rdfs:domain dtd:thead .
+
+dtd:titel_format a owl:DatatypeProperty ;
+    rdfs:domain dtd:titel ;
+    owl:minCardinality "1"^^xsd:nonNegativeInteger .
+
+dtd:zitstelle a owl:DatatypeProperty ;
+    rdfs:range dtd:zitstelle_Range ;
+    rdfs:subPropertyOf dtd:has_zitstelle_Range .
+
+dtd:ABWFORMAT a owl:DatatypeProperty ;
+    rdfs:range dtd:ABWFORMAT_Range ;
+    rdfs:subPropertyOf dtd:has_ABWFORMAT_Range .
+
+dtd:ABWFORMAT_Range a owl:Class .
+
+dtd:Accolade_Range a owl:Class .
+
+dtd:AttR a owl:DatatypeProperty ;
+    rdfs:range dtd:AttR_Range ;
+    rdfs:subPropertyOf dtd:has_AttR_Range .
+
+dtd:AttR_Range a owl:Class .
+
+dtd:BR_Range a owl:Class .
+
+dtd:FILE_Range a owl:Class .
+
+dtd:FNA_Range a owl:Class .
+
+dtd:F_Range a owl:Class .
+
+dtd:FnR a owl:DatatypeProperty ;
+    rdfs:range dtd:FnR_Range ;
+    rdfs:subPropertyOf dtd:has_FnR_Range .
+
+dtd:FnR_Range a owl:Class .
+
+dtd:IMG_Range a owl:Class .
+
+dtd:NB_Range a owl:Class .
+
+dtd:QuoteL_Range a owl:Class .
+
+dtd:QuoteR_Range a owl:Class .
+
+dtd:SUB_Range a owl:Class .
+
+dtd:SUP a owl:DatatypeProperty ;
+    rdfs:range dtd:SUP_Range ;
+    rdfs:subPropertyOf dtd:has_SUP_Range .
+
+dtd:SUP_Range a owl:Class .
+
+dtd:Split a owl:DatatypeProperty ;
+    rdfs:range dtd:Split_Range ;
+    rdfs:subPropertyOf dtd:has_Split_Range .
+
+dtd:Split_Range a owl:Class .
+
+dtd:abgabedat_Range a owl:Class .
+
+dtd:amtabk_Range a owl:Class .
+
+dtd:anlagedat_Range a owl:Class .
+
+dtd:ausfertigung-datum a owl:DatatypeProperty ;
+    rdfs:range dtd:ausfertigung-datum_Range ;
+    rdfs:subPropertyOf dtd:has_ausfertigung-datum_Range .
+
+dtd:ausfertigung-datum_Range a owl:Class .
+
+dtd:colspec_Range a owl:Class .
+
+dtd:dokst_Range a owl:Class .
+
+dtd:enbez_Range a owl:Class .
+
+dtd:fundstelle a owl:Class ;
+    rdfs:subClassOf dtd:has_anlageabgabe_Domain,
+        dtd:has_fundstelle_Range,
+        dtd:has_periodikum_Domain,
+        dtd:has_zitstelle_Domain .
+
+dtd:fussnoten a owl:Class ;
+    rdfs:subClassOf dtd:has_Content_Domain,
+        dtd:has_Footnotes_Domain,
+        dtd:has_TOC_Domain,
+        dtd:has_fussnoten_Range .
+
+dtd:gliederungsbez_Range a owl:Class .
+
+dtd:gliederungskennzahl_Range a owl:Class .
+
+dtd:jurabk_Range a owl:Class .
+
+dtd:kommentar a owl:Class ;
+    rdfs:subClassOf dtd:has_BR_Domain,
+        dtd:has_kommentar_Range .
+
+dtd:noindex_Range a owl:Class .
+
+dtd:periodikum_Range a owl:Class .
+
+dtd:spanspec_Range a owl:Class .
+
+dtd:standangabe a owl:Class ;
+    rdfs:subClassOf dtd:has_standangabe_Range,
+        dtd:has_standkommentar_Domain,
+        dtd:has_standtyp_Domain .
+
+dtd:standtyp_Range a owl:Class .
+
+dtd:text a owl:Class ;
+    rdfs:subClassOf dtd:has_Content_Domain,
+        dtd:has_Footnotes_Domain,
+        dtd:has_TOC_Domain,
+        dtd:has_text_Range .
+
+dtd:titel a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain,
+        dtd:has_titel_Range .
+
+dtd:zitstelle_Range a owl:Class .
+
+dtd:FnArea a owl:Class ;
+    rdfs:subClassOf dtd:has_FnArea_Range,
+        dtd:has_FnR_Domain .
+
+dtd:dokumente a owl:Class ;
+    rdfs:subClassOf dtd:has_norm_Domain .
+
+dtd:has_ABWFORMAT_Range a owl:Class .
+
+dtd:has_Accolade_Domain a owl:Class .
+
+dtd:has_Accolade_Range a owl:Class .
+
+dtd:has_AttArea_Domain a owl:Class .
+
+dtd:has_AttArea_Range a owl:Class .
+
+dtd:has_AttR_Domain a owl:Class .
+
+dtd:has_AttR_Range a owl:Class .
+
+dtd:has_BR_Range a owl:Class .
+
+dtd:has_B_Range a owl:Class .
+
+dtd:has_Citation_Range a owl:Class .
+
+dtd:has_Content_Range a owl:Class .
+
+dtd:has_DD_Domain a owl:Class .
+
+dtd:has_DD_Range a owl:Class .
+
+dtd:has_DL_Range a owl:Class .
+
+dtd:has_DT_Domain a owl:Class .
+
+dtd:has_DT_Range a owl:Class .
+
+dtd:has_FILE_Range a owl:Class .
+
+dtd:has_FNA_Domain a owl:Class .
+
+dtd:has_FNA_Range a owl:Class .
+
+dtd:has_F_Range a owl:Class .
+
+dtd:has_FnArea_Range a owl:Class .
+
+dtd:has_FnR_Range a owl:Class .
+
+dtd:has_Footnote_Domain a owl:Class .
+
+dtd:has_Footnote_Range a owl:Class .
+
+dtd:has_Footnotes_Range a owl:Class .
+
+dtd:has_IMG_Range a owl:Class .
+
+dtd:has_I_Range a owl:Class .
+
+dtd:has_Ident_Range a owl:Class .
+
+dtd:has_LA_Domain a owl:Class .
+
+dtd:has_LA_Range a owl:Class .
+
+dtd:has_NB_Range a owl:Class .
+
+dtd:has_P_Range a owl:Class .
+
+dtd:has_QuoteL_Range a owl:Class .
+
+dtd:has_QuoteR_Range a owl:Class .
+
+dtd:has_Revision_Range a owl:Class .
+
+dtd:has_SP_Range a owl:Class .
+
+dtd:has_SUB_Range a owl:Class .
+
+dtd:has_SUP_Range a owl:Class .
+
+dtd:has_Split_Range a owl:Class .
+
+dtd:has_Subtitle_Range a owl:Class .
+
+dtd:has_TOC_Range a owl:Class .
+
+dtd:has_Title_Range a owl:Class .
+
+dtd:has_U_Range a owl:Class .
+
+dtd:has_abgabedat_Domain a owl:Class .
+
+dtd:has_abgabedat_Range a owl:Class .
+
+dtd:has_amtabk_Domain a owl:Class .
+
+dtd:has_amtabk_Range a owl:Class .
+
+dtd:has_anlageabgabe_Domain a owl:Class .
+
+dtd:has_anlageabgabe_Range a owl:Class .
+
+dtd:has_anlagedat_Domain a owl:Class .
+
+dtd:has_anlagedat_Range a owl:Class .
+
+dtd:has_ausfertigung-datum_Domain a owl:Class .
+
+dtd:has_ausfertigung-datum_Range a owl:Class .
+
+dtd:has_colspec_Range a owl:Class .
+
+dtd:has_dokst_Domain a owl:Class .
+
+dtd:has_dokst_Range a owl:Class .
+
+dtd:has_enbez_Domain a owl:Class .
+
+dtd:has_enbez_Range a owl:Class .
+
+dtd:has_entry_Domain a owl:Class .
+
+dtd:has_entry_Range a owl:Class .
+
+dtd:has_fundstelle_Domain a owl:Class .
+
+dtd:has_fundstelle_Range a owl:Class .
+
+dtd:has_fussnoten_Domain a owl:Class .
+
+dtd:has_fussnoten_Range a owl:Class .
+
+dtd:has_gliederungsbez_Domain a owl:Class .
+
+dtd:has_gliederungsbez_Range a owl:Class .
+
+dtd:has_gliederungseinheit_Domain a owl:Class .
+
+dtd:has_gliederungseinheit_Range a owl:Class .
+
+dtd:has_gliederungskennzahl_Domain a owl:Class .
+
+dtd:has_gliederungskennzahl_Range a owl:Class .
+
+dtd:has_gliederungstitel_Domain a owl:Class .
+
+dtd:has_gliederungstitel_Range a owl:Class .
+
+dtd:has_jurabk_Domain a owl:Class .
+
+dtd:has_jurabk_Range a owl:Class .
+
+dtd:has_kommentar_Range a owl:Class .
+
+dtd:has_kurzue_Domain a owl:Class .
+
+dtd:has_kurzue_Range a owl:Class .
+
+dtd:has_langue_Domain a owl:Class .
+
+dtd:has_langue_Range a owl:Class .
+
+dtd:has_metadaten_Domain a owl:Class .
+
+dtd:has_metadaten_Range a owl:Class .
+
+dtd:has_noindex_Range a owl:Class .
+
+dtd:has_norm_Domain a owl:Class .
+
+dtd:has_norm_Range a owl:Class .
+
+dtd:has_periodikum_Domain a owl:Class .
+
+dtd:has_periodikum_Range a owl:Class .
+
+dtd:has_pre_Range a owl:Class .
+
+dtd:has_row_Range a owl:Class .
+
+dtd:has_small_Range a owl:Class .
+
+dtd:has_spanspec_Domain a owl:Class .
+
+dtd:has_spanspec_Range a owl:Class .
+
+dtd:has_standangabe_Domain a owl:Class .
+
+dtd:has_standangabe_Range a owl:Class .
+
+dtd:has_standkommentar_Domain a owl:Class .
+
+dtd:has_standkommentar_Range a owl:Class .
+
+dtd:has_standtyp_Domain a owl:Class .
+
+dtd:has_standtyp_Range a owl:Class .
+
+dtd:has_table_Range a owl:Class .
+
+dtd:has_tbody_Domain a owl:Class .
+
+dtd:has_tbody_Range a owl:Class .
+
+dtd:has_text_Domain a owl:Class .
+
+dtd:has_text_Range a owl:Class .
+
+dtd:has_textdaten_Domain a owl:Class .
+
+dtd:has_textdaten_Range a owl:Class .
+
+dtd:has_tfoot_Domain a owl:Class .
+
+dtd:has_tfoot_Range a owl:Class .
+
+dtd:has_tgroup_Domain a owl:Class .
+
+dtd:has_tgroup_Range a owl:Class .
+
+dtd:has_thead_Domain a owl:Class .
+
+dtd:has_thead_Range a owl:Class .
+
+dtd:has_titel_Domain a owl:Class .
+
+dtd:has_titel_Range a owl:Class .
+
+dtd:has_zitstelle_Domain a owl:Class .
+
+dtd:has_zitstelle_Range a owl:Class .
+
+dtd:norm a owl:Class ;
+    rdfs:subClassOf dtd:has_metadaten_Domain,
+        dtd:has_norm_Range,
+        dtd:has_textdaten_Domain .
+
+dtd:Accolade a owl:DatatypeProperty ;
+    rdfs:range dtd:Accolade_Range ;
+    rdfs:subPropertyOf dtd:has_Accolade_Range .
+
+dtd:Content a owl:Class ;
+    rdfs:subClassOf dtd:has_AttArea_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_Content_Range,
+        dtd:has_FnArea_Domain,
+        dtd:has_P_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_Subtitle_Domain,
+        dtd:has_TOC_Domain,
+        dtd:has_Title_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_table_Domain .
+
+dtd:DT a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_DT_Range,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:F a owl:DatatypeProperty ;
+    rdfs:range dtd:F_Range ;
+    rdfs:subPropertyOf dtd:has_F_Range .
+
+dtd:Ident a owl:Class ;
+    rdfs:subClassOf dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_I_Domain,
+        dtd:has_Ident_Range,
+        dtd:has_NB_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_U_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_small_Domain .
+
+dtd:P a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_P_Range,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:TOC a owl:Class ;
+    rdfs:subClassOf dtd:has_Ident_Domain,
+        dtd:has_P_Domain,
+        dtd:has_TOC_Range,
+        dtd:has_Title_Domain,
+        dtd:has_table_Domain .
+
+dtd:has_Footnotes_Domain a owl:Class .
+
+dtd:has_Subtitle_Domain a owl:Class .
+
+dtd:pre a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_I_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_pre_Range,
+        dtd:has_small_Domain .
+
+dtd:DD a owl:Class ;
+    rdfs:subClassOf dtd:has_DD_Range,
+        dtd:has_LA_Domain,
+        dtd:has_Revision_Domain .
+
+dtd:Revision a owl:Class ;
+    rdfs:subClassOf dtd:has_Content_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_Ident_Domain,
+        dtd:has_P_Domain,
+        dtd:has_Revision_Range,
+        dtd:has_Subtitle_Domain,
+        dtd:has_TOC_Domain,
+        dtd:has_Title_Domain,
+        dtd:has_table_Domain .
+
+dtd:Subtitle a owl:Class ;
+    rdfs:subClassOf dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Subtitle_Range,
+        dtd:has_U_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_small_Domain .
+
+dtd:Title a owl:Class ;
+    rdfs:subClassOf dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Title_Range,
+        dtd:has_U_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_small_Domain .
+
+dtd:has_Content_Domain a owl:Class .
+
+dtd:has_Ident_Domain a owl:Class .
+
+dtd:has_colspec_Domain a owl:Class .
+
+dtd:has_row_Domain a owl:Class .
+
+dtd:LA a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_LA_Range,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:has_P_Domain a owl:Class .
+
+dtd:has_TOC_Domain a owl:Class .
+
+dtd:DL a owl:Class ;
+    rdfs:subClassOf dtd:has_DD_Domain,
+        dtd:has_DL_Range,
+        dtd:has_DT_Domain .
+
+dtd:Footnote a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_Footnote_Range,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_Revision_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_U_Domain,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_pre_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:has_Title_Domain a owl:Class .
+
+dtd:tfoot a owl:Class ;
+    rdfs:subClassOf dtd:has_colspec_Domain,
+        dtd:has_row_Domain,
+        dtd:has_tfoot_Range .
+
+dtd:FILE a owl:DatatypeProperty ;
+    rdfs:range dtd:FILE_Range ;
+    rdfs:subPropertyOf dtd:has_FILE_Range .
+
+dtd:row a owl:Class ;
+    rdfs:subClassOf dtd:has_entry_Domain,
+        dtd:has_row_Range .
+
+dtd:tbody a owl:Class ;
+    rdfs:subClassOf dtd:has_row_Domain,
+        dtd:has_tbody_Range .
+
+dtd:thead a owl:Class ;
+    rdfs:subClassOf dtd:has_colspec_Domain,
+        dtd:has_row_Domain,
+        dtd:has_thead_Range .
+
+dtd:IMG a owl:DatatypeProperty ;
+    rdfs:range dtd:IMG_Range ;
+    rdfs:subPropertyOf dtd:has_IMG_Range .
+
+dtd:tgroup a owl:Class ;
+    rdfs:subClassOf dtd:has_colspec_Domain,
+        dtd:has_spanspec_Domain,
+        dtd:has_tbody_Domain,
+        dtd:has_tfoot_Domain,
+        dtd:has_tgroup_Range,
+        dtd:has_thead_Domain .
+
+dtd:colspec a owl:DatatypeProperty ;
+    rdfs:range dtd:colspec_Range ;
+    rdfs:subPropertyOf dtd:has_colspec_Range .
+
+dtd:has_pre_Domain a owl:Class .
+
+dtd:spanspec a owl:DatatypeProperty ;
+    rdfs:range dtd:spanspec_Range ;
+    rdfs:subPropertyOf dtd:has_spanspec_Range .
+
+dtd:has_Citation_Domain a owl:Class .
+
+dtd:has_FILE_Domain a owl:Class .
+
+dtd:has_IMG_Domain a owl:Class .
+
+dtd:has_QuoteL_Domain a owl:Class .
+
+dtd:has_QuoteR_Domain a owl:Class .
+
+dtd:has_Split_Domain a owl:Class .
+
+dtd:has_ABWFORMAT_Domain a owl:Class .
+
+dtd:has_DL_Domain a owl:Class .
+
+dtd:has_FnArea_Domain a owl:Class .
+
+dtd:has_Revision_Domain a owl:Class .
+
+dtd:entry a owl:Class ;
+    rdfs:subClassOf dtd:has_ABWFORMAT_Domain,
+        dtd:has_Accolade_Domain,
+        dtd:has_BR_Domain,
+        dtd:has_B_Domain,
+        dtd:has_Citation_Domain,
+        dtd:has_DL_Domain,
+        dtd:has_FILE_Domain,
+        dtd:has_FNA_Domain,
+        dtd:has_F_Domain,
+        dtd:has_FnArea_Domain,
+        dtd:has_FnR_Domain,
+        dtd:has_IMG_Domain,
+        dtd:has_I_Domain,
+        dtd:has_Ident_Domain,
+        dtd:has_NB_Domain,
+        dtd:has_P_Domain,
+        dtd:has_QuoteL_Domain,
+        dtd:has_QuoteR_Domain,
+        dtd:has_SP_Domain,
+        dtd:has_SUB_Domain,
+        dtd:has_SUP_Domain,
+        dtd:has_Split_Domain,
+        dtd:has_Title_Domain,
+        dtd:has_U_Domain,
+        dtd:has_entry_Range,
+        dtd:has_kommentar_Domain,
+        dtd:has_noindex_Domain,
+        dtd:has_small_Domain,
+        dtd:has_table_Domain .
+
+dtd:has_kommentar_Domain a owl:Class .
+
+dtd:has_F_Domain a owl:Class .
+
+dtd:has_NB_Domain a owl:Class .
+
+dtd:has_U_Domain a owl:Class .
+
+dtd:has_noindex_Domain a owl:Class .
+
+dtd:has_table_Domain a owl:Class .
+
+dtd:table a owl:Class ;
+    rdfs:subClassOf dtd:has_Title_Domain,
+        dtd:has_table_Range,
+        dtd:has_tgroup_Domain .
+
+dtd:has_B_Domain a owl:Class .
+
+dtd:has_FnR_Domain a owl:Class .
+
+dtd:has_I_Domain a owl:Class .
+
+dtd:has_SP_Domain a owl:Class .
+
+dtd:has_SUB_Domain a owl:Class .
+
+dtd:has_SUP_Domain a owl:Class .
+
+dtd:has_small_Domain a owl:Class .
+
+dtd:has_BR_Domain a owl:Class .
+

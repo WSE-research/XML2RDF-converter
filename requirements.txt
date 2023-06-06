@@ -1,0 +1,5 @@
+isodate==0.6.1
+lxml==4.9.2
+pyparsing==3.0.9
+rdflib==6.3.2
+six==1.16.0
