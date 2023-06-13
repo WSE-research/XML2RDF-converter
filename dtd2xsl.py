@@ -3,9 +3,10 @@ import xml.etree.ElementTree as Et
 from lxml.etree import DTD
 import os
 from uuid import uuid4
+from flask import Response
 
 
-def transform_xml(dtd, xml_file, prefix='https://dtd.org#'):
+def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, return_xslt: bool = False):
     root = Et.Element('xsl:stylesheet', attrib={'version': '1.0', 'xmlns:xsl': 'http://www.w3.org/1999/XSL/Transform'})
     Et.SubElement(root, 'xsl:output', attrib={'indent': 'yes'})
     xsl_template_root = Et.SubElement(root, 'xsl:template', attrib={'match': '/'})
@@ -26,7 +27,7 @@ def transform_xml(dtd, xml_file, prefix='https://dtd.org#'):
 
         for attribute in attributes:
             attribute_check = Et.Element('xsl:if', attrib={'test': f'@{attribute[0]}'})
-            attribute_node = Et.SubElement(attribute_check, f'dtd:has_{attribute[0]}')
+            attribute_node = Et.SubElement(attribute_check, f'dtd:has_{attribute[0]}', attrib={'xml:lang': lang})
             Et.SubElement(attribute_node, 'xsl:value-of', attrib={'select': f'@{attribute[0]}'})
 
             description.append(attribute_check)
@@ -40,7 +41,7 @@ def transform_xml(dtd, xml_file, prefix='https://dtd.org#'):
 
                 description.append(content_loop)
             else:
-                current_content_node = Et.Element('dtd:has_Value')
+                current_content_node = Et.Element('dtd:has_Value', attrib={'xml:lang': lang})
                 Et.SubElement(current_content_node, 'xsl:value-of', attrib={'select': 'current()'})
 
                 description.append(current_content_node)
@@ -49,19 +50,24 @@ def transform_xml(dtd, xml_file, prefix='https://dtd.org#'):
 
     tree = Et.ElementTree(root)
     Et.indent(tree)
-    tree.write(f'{xml_file}-mapping.xsl', xml_declaration=True, encoding='unicode')
 
     output = str(uuid4())
 
-    os.system(f'xsltproc -o {output} {xml_file}-mapping.xsl {xml_file}')
+    tree.write(f'{xml_file}-mapping.xsl', xml_declaration=True, encoding='unicode')
 
-    with open(output) as f:
-        response = f.read()
+    if not return_xslt:
+        os.system(f'xsltproc -o {output} {xml_file}-mapping.xsl {xml_file}')
 
-    os.remove(output)
-    os.remove(f'{xml_file}-mapping.xsl')
-    return response
+    try:
+        if not return_xslt:
+            with open(output) as f:
+                response = f.read()
 
-
-if __name__ == '__main__':
-    transform_xml(DTD('gii-norm.dtd'), 'BJNR009650976.xml')
+            return Response(response, content_type='application/rdf+xml')
+        else:
+            with open(f'{xml_file}-mapping.xsl') as f:
+                return Response(f.read(), content_type='application/xslt+xml')
+    finally:
+        if not return_xslt:
+            os.remove(output)
+        os.remove(f'{xml_file}-mapping.xsl')
