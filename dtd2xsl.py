@@ -12,7 +12,8 @@ def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, return_xslt: 
     xsl_template_root = Et.SubElement(root, 'xsl:template', attrib={'match': '/'})
 
     rdf = Et.SubElement(xsl_template_root, 'rdf:RDF', attrib={
-        'xmlns:rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'xmlns:dtd': prefix})
+        'xmlns:rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'xmlns:dtd': prefix,
+        'xmlns:rdfs': 'http://www.w3.org/2000/01/rdf-schema#'})
 
     for element in dtd.elements():
         name = element.name
@@ -26,9 +27,28 @@ def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, return_xslt: 
         Et.SubElement(description, 'rdf:type', attrib={'rdf:resource': f'{prefix}{name}'})
 
         for attribute in attributes:
+            attribute_type = attribute[1]
+
             attribute_check = Et.Element('xsl:if', attrib={'test': f'@{attribute[0]}'})
-            attribute_node = Et.SubElement(attribute_check, f'dtd:has_{attribute[0]}', attrib={'xml:lang': lang})
-            Et.SubElement(attribute_node, 'xsl:value-of', attrib={'select': f'@{attribute[0]}'})
+
+            attribute_node = Et.SubElement(attribute_check, f'dtd:has_{attribute[0]}',
+                                           attrib={'xml:lang': lang} if attribute_type != 'enumeration' else {})
+
+            if attribute_type != 'enumeration':
+                Et.SubElement(attribute_node, 'xsl:value-of', attrib={'select': f'@{attribute[0]}'})
+            else:
+                enumeration_attr = Et.SubElement(attribute_node, 'xsl:attribute', attrib={'name': 'rdf:resource'})
+                enumeration_attr.text = prefix
+                Et.SubElement(enumeration_attr, 'xsl:value-of', attrib={'select': f'@{attribute[0]}'})
+
+                attribute_label = Et.Element('rdf:Description')
+                attribute_label_select = Et.SubElement(attribute_label, 'xsl:attribute', attrib={'name': 'rdf:about'})
+                attribute_label_select.text = prefix
+                Et.SubElement(attribute_label_select, 'xsl:value-of', attrib={'select': f'//@{attribute[0]}'})
+                attribute_label_rdfs_label = Et.SubElement(attribute_label, 'rdfs:label', attrib={'xml:lang': lang})
+                Et.SubElement(attribute_label_rdfs_label, 'xsl:value-of', attrib={'select': f'//@{attribute[0]}'})
+
+                rdf.append(attribute_label)
 
             description.append(attribute_check)
 

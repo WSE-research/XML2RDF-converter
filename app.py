@@ -21,7 +21,7 @@ def xml2rdf():
       "lang": "language tag for string constants"
     }
 
-    :return:
+    :return: RDF/XML representation of the provided data
     """
     payload = request.json
 
@@ -57,6 +57,17 @@ def xml2rdf():
 
 @app.post('/dtd2xslt')
 def dtd2xslt():
+    """
+    Generate an XML stylesheet from a DTD file
+
+    URI arguments:
+
+    prefix: base URI for the triples defined in the stylesheet
+
+    lang: language tag for string literals
+
+    :return: XSLT data usable for mapping an XML file to RDF/XML
+    """
     dtd = DTD(BytesIO(request.data))
 
     prefix = request.args.get('prefix', 'https://example.org#')
