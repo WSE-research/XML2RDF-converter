@@ -1,0 +1,10 @@
+{
+  "services": [
+    {
+      "mode": "dockerfile",
+      "image": "wseresearch/dtd2rdf",
+      "tag": "latest",
+      "port": "40180:5000"
+    }
+  ]
+}
