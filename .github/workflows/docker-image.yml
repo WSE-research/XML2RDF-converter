@@ -18,7 +18,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
     - name: Tag docker image version
       if: startsWith(github.ref, 'refs/tags/')
-      run: docker tag msu:latest "wseresearch/dtd2rdf:${{ github.ref_name }}"
+      run: docker tag wseresearch/dtd2rdf:latest "wseresearch/dtd2rdf:${{ github.ref_name }}"
     - name: Push latest docker image
       if: startsWith(github.ref, 'refs/tags/')
       run: docker push wseresearch/dtd2rdf:latest
