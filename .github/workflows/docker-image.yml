@@ -26,6 +26,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       run: docker push "wseresearch/dtd2rdf:${{ github.ref_name }}"
     - name: Init update
+      if: startsWith(github.ref, 'refs/tags/')
       uses: MindMaster98/docker-service-updater@v0.2.0
       with:
         updater_host: ${{ secrets.UPDATER_HOST }}
