@@ -1,0 +1,27 @@
+name: Docker Image CI
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag wseresearch/dtd2rdf:latest
+    - name: Docker Login
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Tag docker image version
+      if: startsWith(github.ref, 'refs/tags/')
+      run: docker tag msu:latest "wseresearch/dtd2rdf:${{ github.ref_name }}"
+    - name: Push latest docker image
+      if: startsWith(github.ref, 'refs/tags/')
+      run: docker push wseresearch/dtd2rdf:latest
+    - name: Push tagged version image
+      if: startsWith(github.ref, 'refs/tags/')
+      run: docker push "wseresearch/dtd2rdf:${{ github.ref_name }}"
