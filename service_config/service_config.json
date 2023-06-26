@@ -4,7 +4,8 @@
       "mode": "dockerfile",
       "image": "wseresearch/dtd2rdf",
       "tag": "latest",
-      "port": "40180:5000"
+      "port": "40180:5000",
+      "volumes": ["VOLUME_SETTING"]
     }
   ]
 }
