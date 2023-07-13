@@ -50,7 +50,7 @@ def xml2rdf():
         f.write(xml)
 
     try:
-        return transform_xml(DTD(StringIO(dtd)), xml_id, prefix, lang)
+        return transform_xml(DTD(StringIO(dtd)), xml_id, prefix, lang, request.accept_mimetypes)
     finally:
         os.remove(xml_id)
 
@@ -76,7 +76,7 @@ def dtd2xslt():
     if not prefix.endswith('#') and not prefix.endswith('/'):
         prefix += '#'
 
-    return transform_xml(dtd, str(uuid4()), prefix, lang, True)
+    return transform_xml(dtd, str(uuid4()), prefix, lang, request.accept_mimetypes, True)
 
 
 if __name__ == '__main__':

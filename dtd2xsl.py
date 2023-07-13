@@ -4,9 +4,11 @@ from lxml.etree import DTD
 import os
 from uuid import uuid4
 from flask import Response
+from rdflib import Graph
+from werkzeug.datastructures.accept import MIMEAccept
 
 
-def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, return_xslt: bool = False):
+def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format: MIMEAccept, return_xslt: bool = False):
     root = Et.Element('xsl:stylesheet', attrib={'version': '1.0', 'xmlns:xsl': 'http://www.w3.org/1999/XSL/Transform'})
     Et.SubElement(root, 'xsl:output', attrib={'indent': 'yes'})
     xsl_template_root = Et.SubElement(root, 'xsl:template', attrib={'match': '/'})
@@ -80,10 +82,23 @@ def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, return_xslt: 
 
     try:
         if not return_xslt:
-            with open(output) as f:
-                response = f.read()
+            g = Graph()
+            g.parse(output, format='xml')
 
-            return Response(response, content_type='application/rdf+xml')
+            if 'text/turtle' in output_format:
+                response = g.serialize()
+                return_format = 'text/turtle'
+            elif 'application/rdf+xml' in output_format:
+                response = g.serialize(format='xml')
+                return_format = 'application/rdf+xml'
+            elif 'application/ld+json' in output_format:
+                response = g.serialize(format='json-ld')
+                return_format = 'application/ld+json'
+            else:
+                response = g.serialize()
+                return_format = 'text/turtle'
+
+            return Response(response, content_type=return_format)
         else:
             with open(f'{xml_file}-mapping.xsl') as f:
                 return Response(f.read(), content_type='application/xslt+xml')
