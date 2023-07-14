@@ -6,7 +6,7 @@ h11==0.14.0
 idna==3.4
 isodate==0.6.1
 lxml==4.9.3
-pydantic==2.0.2
+pydantic==2.0.3
 pydantic_core==2.1.2
 pyparsing==3.1.0
 rdflib==6.3.2
