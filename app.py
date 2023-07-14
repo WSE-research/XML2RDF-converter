@@ -1,15 +1,46 @@
 import os
-from flask import Flask, request
+from fastapi import FastAPI, Body, Header
+from fastapi.responses import RedirectResponse
 from dtd2xsl import transform_xml
 from lxml.etree import DTD
-from io import StringIO, BytesIO
+from io import StringIO
 from uuid import uuid4
+from pydantic import BaseModel
+from typing import Annotated
+import uvicorn
+from return_types import XSLTResponse, TurtleResponse
 
-app = Flask(__name__)
+app = FastAPI(title='XML to RDF converter using XML DTD files', docs_url='/',
+              description='This web service provides an endpoint to convert a XML file to RDF. The structure of'
+                          'the XML file has to be provided with an additional DTD file. Although, you can generate'
+                          'a XSLT file from the DTD file. You can use it to transform any XML document that'
+                          'is valid against the DTD file.')
 
 
-@app.post('/xml2rdf')
-def xml2rdf():
+class XML2RDFBody(BaseModel):
+    xml: str
+    dtd: str
+    lang: str | None = None
+    prefix: str | None = None
+
+
+@app.get('/xml2rdf', include_in_schema=False)
+def redirect_to_api_documentation():
+    return RedirectResponse('/')
+
+
+@app.post('/xml2rdf', responses={
+    200: {
+        "content": {
+            "text/turtle": {},
+            "application/rdf+xml": {},
+            "application/ld+json": {}
+        },
+        "description": "RDF triples generated from the provided XML file using its DTD"
+    }
+}, description='Endpoint used to transform a XML file to RDF. The relationship of all elements is build using the DTD '
+               'of the XML file', response_class=TurtleResponse)
+def xml2rdf(payload: XML2RDFBody, accept: Annotated[list[str] | None, Header()] = None):
     """
     Maps an XML file to RDF while generating the properties from the documents' DTD file
 
@@ -23,24 +54,19 @@ def xml2rdf():
 
     :return: RDF/XML representation of the provided data
     """
-    payload = request.json
+    xml = payload.xml
+    dtd = payload.dtd
 
-    try:
-        xml = payload['xml']
-        dtd = payload['dtd']
-    except KeyError:
-        return 'missing "xml" or "dtd"', 400
-
-    if 'prefix' in payload:
-        prefix = payload['prefix']
+    if payload.prefix:
+        prefix = payload.prefix
 
         if not prefix.endswith('#') and not prefix.endswith('/'):
             prefix += '#'
     else:
         prefix = 'https://example.org#'
 
-    if 'lang' in payload:
-        lang = payload['lang']
+    if payload.lang:
+        lang = payload.lang
     else:
         lang = 'en'
 
@@ -50,13 +76,23 @@ def xml2rdf():
         f.write(xml)
 
     try:
-        return transform_xml(DTD(StringIO(dtd)), xml_id, prefix, lang, request.accept_mimetypes)
+        return transform_xml(DTD(StringIO(dtd)), xml_id, prefix, lang, accept)
     finally:
         os.remove(xml_id)
 
 
-@app.post('/dtd2xslt')
-def dtd2xslt():
+@app.post('/dtd2xslt', responses={
+    200: {
+        "content": {
+            "application/xslt+xml": {}
+        },
+        "description": "XSLT file used to transform XML to RDF/XML data"
+    }
+}, description='Endpoint returning the XSLT file usable to transform a XML file to RDF/XML. The translation rules '
+               'are inferred from a DTD file.', response_class=XSLTResponse)
+def dtd2xslt(dtd_content: Annotated[str, Body(media_type='application/xml')],
+             prefix: str | None = 'https://example.org#', lang: str | None = 'en',
+             accept: Annotated[list[str] | None, Header()] = None):
     """
     Generate an XML stylesheet from a DTD file
 
@@ -68,16 +104,13 @@ def dtd2xslt():
 
     :return: XSLT data usable for mapping an XML file to RDF/XML
     """
-    dtd = DTD(BytesIO(request.data))
-
-    prefix = request.args.get('prefix', 'https://example.org#')
-    lang = request.args.get('lang', 'en')
+    dtd = DTD(StringIO(dtd_content))
 
     if not prefix.endswith('#') and not prefix.endswith('/'):
         prefix += '#'
 
-    return transform_xml(dtd, str(uuid4()), prefix, lang, request.accept_mimetypes, True)
+    return transform_xml(dtd, str(uuid4()), prefix, lang, accept, True)
 
 
 if __name__ == '__main__':
-    app.run()
+    uvicorn.run('app:app')

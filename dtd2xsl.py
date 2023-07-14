@@ -3,12 +3,11 @@ import xml.etree.ElementTree as Et
 from lxml.etree import DTD
 import os
 from uuid import uuid4
-from flask import Response
 from rdflib import Graph
-from werkzeug.datastructures.accept import MIMEAccept
+from return_types import XSLTResponse, RdfXmlResponse, TurtleResponse, JsonLdResponse
 
 
-def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format: MIMEAccept, return_xslt: bool = False):
+def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format: list[str], return_xslt: bool = False):
     root = Et.Element('xsl:stylesheet', attrib={'version': '1.0', 'xmlns:xsl': 'http://www.w3.org/1999/XSL/Transform'})
     Et.SubElement(root, 'xsl:output', attrib={'indent': 'yes'})
     xsl_template_root = Et.SubElement(root, 'xsl:template', attrib={'match': '/'})
@@ -87,21 +86,19 @@ def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format
 
             if 'text/turtle' in output_format:
                 response = g.serialize()
-                return_format = 'text/turtle'
+                return TurtleResponse(content=response)
             elif 'application/rdf+xml' in output_format:
                 response = g.serialize(format='xml')
-                return_format = 'application/rdf+xml'
+                return RdfXmlResponse(content=response)
             elif 'application/ld+json' in output_format:
                 response = g.serialize(format='json-ld')
-                return_format = 'application/ld+json'
+                return JsonLdResponse(content=response)
             else:
                 response = g.serialize()
-                return_format = 'text/turtle'
-
-            return Response(response, content_type=return_format)
+                return TurtleResponse(content=response)
         else:
             with open(f'{xml_file}-mapping.xsl') as f:
-                return Response(f.read(), content_type='application/xslt+xml')
+                return XSLTResponse(content=f.read())
     finally:
         if not return_xslt:
             os.remove(output)

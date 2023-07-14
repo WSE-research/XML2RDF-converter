@@ -4,5 +4,4 @@ RUN python -m venv /venv
 ENV PATH=/venv/bin:$PATH
 COPY . .
 RUN pip install -r requirements.txt
-RUN pip install gunicorn
-CMD gunicorn -w 4 -b 0.0.0.0:5000 --certfile /ssl/server.crt --keyfile /ssl/server.key app:app
+CMD uvicorn --workers 4 --port 5000 --host 0.0.0.0 --ssl-certfile /ssl/server.crt --ssl-keyfile /ssl/server.key app:app
