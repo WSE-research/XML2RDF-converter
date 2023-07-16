@@ -11,7 +11,7 @@ ifdef::env-github[]
 endif::[]
 
 ++++
-<a href="https://github.com/search?q=topic%3Aqado+org%3AWSE-research&type=Repositories" title="see all QADO repositories">
+<a href="https://github.com/search?q=topic%3AXML-to-RDF+org%3AWSE-research&type=Repositories" title="see all our XML-to-RDF repositories">
 <img align="right" role="right" height="96" src="https://github.com/WSE-research/DTD2RDFConverter-Web-UI/blob/main/images/XML-to-RDF-using-DTD.png?raw=true"/>
 </a>
 ++++
