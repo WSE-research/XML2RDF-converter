@@ -10,13 +10,19 @@ ifdef::env-github[]
 :warning-caption: :warning:
 endif::[]
 
+++++
+<a href="https://github.com/search?q=topic%3Aqado+org%3AWSE-research&type=Repositories" title="see all QADO repositories">
+<img align="right" role="right" height="96" src="https://github.com/WSE-research/DTD2RDFConverter-Web-UI/blob/main/images/XML-to-RDF-using-DTD.png?raw=true"/>
+</a>
+++++
+
 = XML2RDF converter using XML DTD files
 
 If you want to translate XML data to RDF data, you come to the right place.
-This web service provides a **fast and automated** way for interactively converting XML data to RDF data. 
+This web service provides a **fast and automated** way of interactively converting XML data to RDF data. 
 Alternative approaches require manual mappings between the XML and RDF data, which is time-consuming and error-prone. 
 In contrast, this tool uses the corresponding Document Type Definition (DTD) to automatically generate the RDF data (i.e., the structure of the RDF properties is derived from the DTD file).
-However, please note that that due to the nature of implemented approach, our automated process has no capabilities for changing structure of the generated RDF data.
+However, please note that due to the nature of the implemented approach, our automated process has no capabilities for changing the structure of the generated RDF data.
 Instead, the generated RDF data is a direct representation of the XML data.
 Concluding, this service can be used for **straight-forward conversion of XML to RDF** if DTDs are available.
 
@@ -72,20 +78,17 @@ curl --location 'http://localhost:5000/xml2rdf' \
 
 ==== Example data
 
-In the folder link:./examples[`examples`] you can find an example DTD file and two example XML files.
+In the folder link:./examples[`examples`] you can find a sample DTD file and two sample XML files.
 
 
 == Generate XSLT stylesheet from Document Type Definitions (DTD)
 
-To transform a DTD file to the XSLT stylesheet used for the RDF 
-generation use the endpoint `http://localhost:5000/dtd2xslt`. The data
-payload needs to be the DTD file. You can use the following URL 
-arguments to adjust the output:
+To transform a DTD file to the XSLT stylesheet used for the RDF generation use the endpoint `http://localhost:5000/dtd2xslt`. 
+The data payload needs to be the DTD file. 
+You can use the following URL arguments to adjust the output:
 
-* `prefix`: The base url for the generated URIs, defaults to
-  `https://example.org#`
-* `lang`: The language tag for generated string literals, defaults to
-  `en`
+* `prefix`: The base URL for the generated URIs, defaults to `https://example.org#`
+* `lang`: The language tag for generated string literals, defaults to `en`
 
 === Example
 
