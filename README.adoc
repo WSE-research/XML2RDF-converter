@@ -8,6 +8,7 @@ ifdef::env-github[]
 :important-caption: :heavy_exclamation_mark:
 :caution-caption: :fire:
 :warning-caption: :warning:
+:github-repository: https://github.com/WSE-research/DTD2RDFConverter
 endif::[]
 
 ++++
@@ -25,6 +26,8 @@ In contrast, this tool uses the corresponding Document Type Definition (DTD) to 
 However, please note that due to the nature of the implemented approach, our automated process has no capabilities for changing the structure of the generated RDF data.
 Instead, the generated RDF data is a direct representation of the XML data.
 Concluding, this service can be used for **straight-forward conversion of XML to RDF** if DTDs are available.
+
+Please recognize the corresponding https://github.com/WSE-research/DTD2RDFConverter-Web-UI[Web UI] for using this web service interactively.
 
 ---
 
@@ -97,3 +100,15 @@ curl --location 'http://localhost:5000/dtd2xslt?prefix=http%3A%2F%2Fexample.org&
 --header 'Content-Type: application/xml-dtd' \
 --data '@(LOCAL FILE PATH TO YOUR DTD FILE)'
 ```
+
+== Contribute
+
+We are happy to receive your contributions. 
+Please create a pull request or an {github-repository}/issues/new[issue].
+As this tool is published under the {github-repository}/blob/main/LICENSE[MIT license], feel free to {github-repository}/fork[fork] it and use it in your own projects.
+
+== Disclaimer
+
+This tool is not storing any data. All data is processed in memory and is not persisted.
+This tool is provided "as is" and without any warranty, express or implied.
+
