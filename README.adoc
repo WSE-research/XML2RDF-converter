@@ -20,7 +20,7 @@ endif::[]
 = XML2RDF converter using XML DTD files
 
 If you want to translate XML data to RDF data, you come to the right place.
-This web service provides a **fast and automated** way of interactively converting XML data to RDF data. 
+This **web service** provides a **fast and automated** way of converting XML data to RDF data. 
 Alternative approaches require manual mappings between the XML and RDF data, which is time-consuming and error-prone. 
 In contrast, this tool uses the corresponding Document Type Definition (DTD) to automatically generate the RDF data (i.e., the structure of the RDF properties is derived from the DTD file).
 However, please note that due to the nature of the implemented approach, our automated process has no capabilities for changing the structure of the generated RDF data.
