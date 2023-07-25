@@ -1,7 +1,47 @@
-# XML2RDF converter using XML DTD files
-This service can be used to convert an XML file into RDF/XML. The
-structure of the properties is derived from the DTD file. To start it
-run
+:toc:
+:toclevels: 5
+:toc-placement!:
+:source-highlighter: highlight.js
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+:github-repository: https://github.com/WSE-research/DTD2RDFConverter
+endif::[]
+
+++++
+<a href="https://github.com/search?q=topic%3AXML-to-RDF+org%3AWSE-research&type=Repositories" title="see all our XML-to-RDF repositories">
+<img align="right" role="right" height="96" src="https://github.com/WSE-research/DTD2RDFConverter-Web-UI/blob/main/images/XML-to-RDF-using-DTD.png?raw=true"/>
+</a>
+++++
+
+= XML2RDF converter using XML DTD files
+
+If you want to translate XML data to RDF data, you come to the right place.
+This **web service** provides a **fast and automated** way of converting XML data to RDF data. 
+Alternative approaches require manual mappings between the XML and RDF data, which is time-consuming and error-prone. 
+In contrast, this tool uses the corresponding Document Type Definition (DTD) to automatically generate the RDF data (i.e., the structure of the RDF properties is derived from the DTD file).
+However, please note that due to the nature of the implemented approach, our automated process has no capabilities for changing the structure of the generated RDF data.
+Instead, the generated RDF data is a direct representation of the XML data.
+Concluding, this service can be used for **straight-forward conversion of XML to RDF** if DTDs are available.
+
+Please recognize the corresponding https://github.com/WSE-research/DTD2RDFConverter-Web-UI[Web UI] for using this web service interactively.
+
+---
+
+toc::[]
+
+---
+
+== Demo
+
+The web service is available at https://demos.swe.htwk-leipzig.de:40180/.
+
+== Run the service
+
+To start it execute the following command:
 
 ```shell
 docker-compose up
@@ -10,9 +50,10 @@ docker-compose up
 The service uses HTTPS, so ensure that you provide a volume with the 2
 files `server.crt` and `server.key`.
 
-## Transforming XML to RDF using a DTD
-The conversion can be done with a `POST` request at `http://localhost:5000/xml2rdf`. The endpoint requires the following
-JSON payload:
+== Transforming XML data to the exact RDF representation using Document Type Definitions (DTD)
+
+The conversion can be done with a `POST` request at `http://localhost:5000/xml2rdf`. 
+The endpoint requires the following JSON payload:
 
 ```json
 {
@@ -23,7 +64,10 @@ JSON payload:
 }
 ```
 
-### Example
+=== Example
+
+==== Example Web service request using curl
+
 ```shell
 curl --location 'http://localhost:5000/xml2rdf' \
 --header 'Content-Type: application/json' \
@@ -35,20 +79,36 @@ curl --location 'http://localhost:5000/xml2rdf' \
 }'
 ```
 
-## Generate XSLT stylesheet from DTD
-To transform a DTD file to the XSLT stylesheet used for the RDF 
-generation use the endpoint `http://localhost:5000/dtd2xslt`. The data
-payload needs to be the DTD file. You can use the following URL 
-arguments to adjust the output:
+==== Example data
 
-* `prefix`: The base url for the generated URIs, defaults to
-  `https://example.org#`
-* `lang`: The language tag for generated string literals, defaults to
-  `en`
+In the folder link:./examples[`examples`] you can find a sample DTD file and two sample XML files.
 
-### Example
+
+== Generate XSLT stylesheet from Document Type Definitions (DTD)
+
+To transform a DTD file to the XSLT stylesheet used for the RDF generation use the endpoint `http://localhost:5000/dtd2xslt`. 
+The data payload needs to be the DTD file. 
+You can use the following URL arguments to adjust the output:
+
+* `prefix`: The base URL for the generated URIs, defaults to `https://example.org#`
+* `lang`: The language tag for generated string literals, defaults to `en`
+
+=== Example
+
 ```shell
 curl --location 'http://localhost:5000/dtd2xslt?prefix=http%3A%2F%2Fexample.org&lang=de' \
 --header 'Content-Type: application/xml-dtd' \
 --data '@(LOCAL FILE PATH TO YOUR DTD FILE)'
 ```
+
+== Contribute
+
+We are happy to receive your contributions. 
+Please create a pull request or an {github-repository}/issues/new[issue].
+As this tool is published under the {github-repository}/blob/main/LICENSE[MIT license], feel free to {github-repository}/fork[fork] it and use it in your own projects.
+
+== Disclaimer
+
+This tool is not storing any data. All data is processed in memory and is not persisted.
+This tool is provided "as is" and without any warranty, express or implied.
+
