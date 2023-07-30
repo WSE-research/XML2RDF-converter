@@ -1,8 +1,8 @@
 import os
 from fastapi import FastAPI, Body, Header
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, PlainTextResponse
 from dtd2xsl import transform_xml
-from lxml.etree import DTD
+from lxml.etree import DTD, DTDParseError
 from io import StringIO
 from uuid import uuid4
 from pydantic import BaseModel
@@ -77,6 +77,8 @@ def xml2rdf(payload: XML2RDFBody, accept: Annotated[list[str] | None, Header()] 
 
     try:
         return transform_xml(DTD(StringIO(dtd)), xml_id, prefix, lang, accept)
+    except DTDParseError:
+        return PlainTextResponse("invalid DTD file", 400)
     finally:
         os.remove(xml_id)
 
@@ -104,12 +106,15 @@ def dtd2xslt(dtd_content: Annotated[str, Body(media_type='application/xml')],
 
     :return: XSLT data usable for mapping an XML file to RDF/XML
     """
-    dtd = DTD(StringIO(dtd_content))
+    try:
+        dtd = DTD(StringIO(dtd_content))
 
-    if not prefix.endswith('#') and not prefix.endswith('/'):
-        prefix += '#'
+        if not prefix.endswith('#') and not prefix.endswith('/'):
+            prefix += '#'
 
-    return transform_xml(dtd, str(uuid4()), prefix, lang, accept, True)
+        return transform_xml(dtd, str(uuid4()), prefix, lang, accept, True)
+    except DTDParseError:
+        return PlainTextResponse('invalid DTD file')
 
 
 if __name__ == '__main__':
