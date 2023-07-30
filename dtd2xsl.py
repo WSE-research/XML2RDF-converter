@@ -1,10 +1,12 @@
 from ontology_generator import get_contents, get_attributes
 import xml.etree.ElementTree as Et
 from lxml.etree import DTD
+import subprocess
 import os
 from uuid import uuid4
 from rdflib import Graph
 from return_types import XSLTResponse, RdfXmlResponse, TurtleResponse, JsonLdResponse
+from fastapi.responses import PlainTextResponse
 
 
 def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format: list[str], return_xslt: bool = False):
@@ -76,13 +78,18 @@ def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format
 
     tree.write(f'{xml_file}-mapping.xsl', xml_declaration=True, encoding='unicode')
 
-    if not return_xslt:
-        os.system(f'xsltproc -o {output} {xml_file}-mapping.xsl {xml_file}')
-
     try:
         if not return_xslt:
+            status = subprocess.run(['xsltproc', '-o', output, f'{xml_file}-mapping.xsl', xml_file],
+                                    capture_output=True)
+
+            if status.returncode != 0:
+                return PlainTextResponse(status.stderr, 400)
+
             g = Graph()
             g.parse(output, format='xml')
+
+            os.remove(output)
 
             if 'text/turtle' in output_format:
                 response = g.serialize()
@@ -96,10 +103,9 @@ def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format
             else:
                 response = g.serialize()
                 return TurtleResponse(content=response)
+
         else:
             with open(f'{xml_file}-mapping.xsl') as f:
                 return XSLTResponse(content=f.read())
     finally:
-        if not return_xslt:
-            os.remove(output)
         os.remove(f'{xml_file}-mapping.xsl')
