@@ -10,7 +10,7 @@ from typing import Annotated
 import uvicorn
 from return_types import XSLTResponse, TurtleResponse
 
-app = FastAPI(title='XML to RDF converter using XML DTD files', root_path='/xml-to-rdf',
+app = FastAPI(title='XML to RDF converter using XML DTD files', root_path='/xml-to-rdf', docs_url='/',
               description='This web service provides an endpoint to convert a XML file to RDF. The structure of'
                           'the XML file has to be provided with an additional DTD file. Although, you can generate'
                           'a XSLT file from the DTD file. You can use it to transform any XML document that'
