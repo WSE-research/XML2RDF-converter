@@ -27,6 +27,9 @@ jobs:
       run: docker push wseresearch/${{ secrets.DOCKER_IMAGE_NAME }}:latest
     - name: Push docker image version
       if: startsWith(github.ref, 'refs/tags/')
+      run: sed -i 's/VOLUME_SETTING/${{ secrets.VOLUMES }}/g' service_config/service_config.json
+    - name: Replace docker volume mapping if existing
+      if: startsWith(github.ref, 'refs/tags/')
       run: docker push "wseresearch/${{ secrets.DOCKER_IMAGE_NAME }}:${{ github.ref_name }}"
     - name: Init update
       if: startsWith(github.ref, 'refs/tags/')
