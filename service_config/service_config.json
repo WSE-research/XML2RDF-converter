@@ -2,7 +2,7 @@
   "services": [
     {
       "mode": "dockerfile",
-      "image": "wseresearch/xml2rdf",
+      "image": "wseresearch/xml2rdf-converter",
       "tag": "latest",
       "port": "40180:5000",
       "volumes": ["VOLUME_SETTING"]
