@@ -18,25 +18,39 @@ def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format
         'xmlns:rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#', 'xmlns:dtd': prefix,
         'xmlns:rdfs': 'http://www.w3.org/2000/01/rdf-schema#'})
 
+    # Generate all elements
     for element in dtd.elements():
         name = element.name
 
+        # get content (VALUE OR child Elements) of the current element
         contents = get_contents(element.content)
+
+        # get all XML attributes of the current element
         attributes = get_attributes(element.attributes())
 
+        # generate the subject ID for all elements found in a XML file
         element_node = Et.Element('xsl:for-each', attrib={'select': f'//{name}'})
-        description = Et.SubElement(element_node, 'rdf:Description', attrib={
-            'rdf:about': f'{prefix}{name}-{{generate-id(.)}}'})
+        description = Et.SubElement(element_node, 'rdf:Description')
+        description_id_attribute = Et.SubElement(description, 'xsl:attribute', attrib={'name': 'rdf:about'})
+        description_id_attribute.text = prefix
+        description_id_name = Et.SubElement(description_id_attribute, 'xsl:value-of', attrib={'select': 'local-name()'})
+        description_id_name.tail = "-"
+        Et.SubElement(description_id_attribute, 'xsl:number', attrib={'level': 'any'})
+
+        # annotate element name as RDF type
         Et.SubElement(description, 'rdf:type', attrib={'rdf:resource': f'{prefix}{name}'})
 
+        # create annotations for all attributes
         for attribute in attributes:
             attribute_type = attribute[1]
 
+            # generate entry only if attribute exists
             attribute_check = Et.Element('xsl:if', attrib={'test': f'@{attribute[0]}'})
 
             attribute_node = Et.SubElement(attribute_check, f'dtd:has_{attribute[0]}',
                                            attrib={'xml:lang': lang} if attribute_type != 'enumeration' else {})
 
+            # attribute contains only one entry
             if attribute_type != 'enumeration':
                 Et.SubElement(attribute_node, 'xsl:value-of', attrib={'select': f'@{attribute[0]}'})
             else:
@@ -55,14 +69,21 @@ def transform_xml(dtd: DTD, xml_file: str, prefix: str, lang: str, output_format
 
             description.append(attribute_check)
 
+        # annotate all content
         for content in contents:
+            # current content is a child element
             if content[0]:
                 content_loop = Et.Element('xsl:for-each', attrib={'select': content[0]})
-                Et.SubElement(content_loop, f'dtd:has_{content[0]}', attrib={
-                    'rdf:resource': f'{prefix}{content[0]}-{{generate-id(.)}}'
-                })
+                rdf_content = Et.SubElement(content_loop, f'dtd:has_{content[0]}')
+
+                rdf_id_attribute = Et.SubElement(rdf_content, 'xsl:attribute', attrib={'name': 'rdf:resource'})
+                rdf_id_attribute.text = prefix
+                rdf_id_name = Et.SubElement(rdf_id_attribute, 'xsl:value-of', attrib={'select': 'local-name()'})
+                rdf_id_name.tail = "-"
+                Et.SubElement(rdf_id_attribute, 'xsl:number', attrib={'level': 'any'})
 
                 description.append(content_loop)
+            # current content is plain text
             else:
                 current_content_node = Et.Element('dtd:has_Value', attrib={'xml:lang': lang})
                 Et.SubElement(current_content_node, 'xsl:value-of', attrib={'select': 'current()'})
