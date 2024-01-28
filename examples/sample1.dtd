@@ -1,0 +1,5 @@
+<!ELEMENT document (note*)>
+<!ELEMENT note (child*)>
+<!ATTLIST note	order CDATA #IMPLIED>
+<!ELEMENT child (#PCDATA)>
+<!ATTLIST child	order CDATA #IMPLIED>
