@@ -12,7 +12,7 @@ jobs:
       if: startsWith(github.ref, 'refs/tags/')
       run: docker build . --file Dockerfile --tag ${{ secrets.DOCKER_IMAGE_NAME }}:latest
     - name: Build the Docker image with a temporary name
-      if: !startsWith(github.ref, 'refs/tags/')
+      if: ! startsWith(github.ref, 'refs/tags/')
       run: docker build . --file Dockerfile --tag tmp:notag
     - name: Docker Login
       if: startsWith(github.ref, 'refs/tags/')
