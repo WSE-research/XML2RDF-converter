@@ -1,1 +1,26 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv
 venv/
+env/
+ENV/
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.pytest_cache/
+pytest-report.xml
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+
+VERSION.txt
