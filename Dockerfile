@@ -1,4 +1,4 @@
-FROM python:alpine
+FROM python:3.11-alpine
 RUN apk add --no-cache libxslt
 RUN python -m venv /venv
 ENV PATH=/venv/bin:$PATH
