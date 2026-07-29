@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
-      - run: pip install ruff
+      - run: pip install ruff==0.15.22
       - run: ruff check app.py dtd2xsl.py ontology_generator.py return_types.py tests/
 
   test:
